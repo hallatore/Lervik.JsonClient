@@ -17,7 +17,7 @@ namespace Lervik
                 httpClientHandler.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate; 
 
             using (var client = new HttpClient(httpClientHandler))
-            using (var stream = await client.GetStreamAsync(url))
+            using (var stream = await client.GetStreamAsync(url).ConfigureAwait(false))
             using (var sr = new StreamReader(stream))
             using (var reader = new JsonTextReader(sr))
             {

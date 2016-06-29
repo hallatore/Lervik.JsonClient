@@ -1,5 +1,5 @@
 {
-  "version": "1.0.2-*",
+  "version": "1.0.3-*",
   "authors": [ "Tore Lervik" ],
   "description": "Httpclient helper that deserializes json",
   "packOptions": {
