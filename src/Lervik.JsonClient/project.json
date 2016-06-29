@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0-*",
+  "authors": [ "Tore Lervik" ],
+  "description": "Httpclient helper that deserializes json",
+  "packOptions": {
+    "projectUrl": "https://github.com/hallatore/Lervik.JsonClient"
+  },
+  "buildOptions": {
+    "debugType": "portable"
+  },
+  "dependencies": {
+    "System.Net.Http": "4.1.0",
+    "Newtonsoft.Json": "9.0.1"
+  },
+  "frameworks": {
+    "netstandard1.1": {
+      "dependencies": {}
+    }
+  }
+}
