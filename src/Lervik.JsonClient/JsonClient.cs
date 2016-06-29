@@ -8,14 +8,15 @@ namespace Lervik
 {
     public static class JsonClient
     {
-        public static async Task<T> GetAsync<T>(string url, HttpClientHandler httpMessageHandler = null)
+        public static async Task<T> GetAsync<T>(string url, HttpClientHandler httpClientHandler = null)
         {
-            if (httpMessageHandler == null)
-                httpMessageHandler = new HttpClientHandler();
+            if (httpClientHandler == null)
+                httpClientHandler = new HttpClientHandler();
 
-            httpMessageHandler.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate; 
+            if (httpClientHandler.SupportsAutomaticDecompression)
+                httpClientHandler.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate; 
 
-            using (var client = new HttpClient(httpMessageHandler))
+            using (var client = new HttpClient(httpClientHandler))
             using (var stream = await client.GetStreamAsync(url))
             using (var sr = new StreamReader(stream))
             using (var reader = new JsonTextReader(sr))
